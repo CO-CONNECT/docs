@@ -1,0 +1,914 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Mapping Rules - CO-CONNECT Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="co-connect" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CO-CONNECT Docs" class="md-header__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CO-CONNECT Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mapping Rules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CO-CONNECT Docs" class="md-nav__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    CO-CONNECT Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Azure Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/RunningLocally/" class="md-nav__link">
+        LocalFunctions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/processQueue/" class="md-nav__link">
+        ProcessQueue
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mapping-Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mapping-Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mapping-Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploading-scan-report/" class="md-nav__link">
+        Uploading a Report
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nlp-processing/" class="md-nav__link">
+        NLP Processing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mapping Rules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mapping Rules
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-rules" class="md-nav__link">
+    Building Rules
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-person-id" class="md-nav__link">
+    1. Person ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-date-events" class="md-nav__link">
+    2. Date Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-source-value" class="md-nav__link">
+    3. Source Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-concept-id" class="md-nav__link">
+    4. Concept ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-source-concept-id" class="md-nav__link">
+    5. Source Concept ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schematic-diagram" class="md-nav__link">
+    Schematic Diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-rules" class="md-nav__link">
+    Downloading Rules
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CO-CONNECT Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CO-CONNECT Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CO-CONNECT Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CommonDataModel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CommonDataModel" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CommonDataModel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/CommonDataModel/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Tables
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tables" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tables
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Common/" class="md-nav__link">
+        Common
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Person/" class="md-nav__link">
+        Person
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/ConditionOccurrence/" class="md-nav__link">
+        Condition Occurrence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Measurement/" class="md-nav__link">
+        Measurement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Observation/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        ETL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ETL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          ETL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/notebooks/Introduction%20-%20Using%20the%20ETLTool/" class="md-nav__link">
+        Workbook Example
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-rules" class="md-nav__link">
+    Building Rules
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-person-id" class="md-nav__link">
+    1. Person ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-date-events" class="md-nav__link">
+    2. Date Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-source-value" class="md-nav__link">
+    3. Source Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-concept-id" class="md-nav__link">
+    4. Concept ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-source-concept-id" class="md-nav__link">
+    5. Source Concept ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schematic-diagram" class="md-nav__link">
+    Schematic Diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-rules" class="md-nav__link">
+    Downloading Rules
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Mapping Rules</h1>
+                
+                <p>Mapping Rules determine how to link (and potentially modify) between <code>source_fields</code> (in
+put data) and <code>destination_fields</code> (output data) when building <code>CDM</code> objects. </p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Validation of <code>ScanReportConcept</code> occurs when they themselves are created. Their creation will fail if:</p>
+<ol>
+<li>The associated <code>ScanReportTable</code> does not have a <code>person_id</code> marked.  </li>
+<li>The associated <code>ScanReportTable</code> does not have a <code>date_event</code> marked.</li>
+</ol>
+<p>These are requirements for building the mapping rules</p>
+<h2 id="building-rules">Building Rules<a class="headerlink" href="#building-rules" title="Permanent link">&para;</a></h2>
+<p>For each <code>ScanReportConcept</code> that is created, the procedure to build Mapping-Rules proceeds as follows:</p>
+<ol>
+<li>
+<p>The <ins class="critic">destination_field</ins> (<code>OmopField</code> object) of the <code>&lt;domain&gt;_concept_id</code> is found using <code>ScanReportConcept.concept.domain_id</code>. The <ins class="critic">destination_table</ins> is linked to the object.</p>
+</li>
+<li>
+<p>From the <ins class="critic">source_field</ins> or <ins class="critic">source_value</ins> of the <code>ScanReportConcept.content_type</code> the <ins class="critic">source_table</ins> is found.  </p>
+</li>
+<li>
+<p>At least <mark class="critic"> five </mark> common mapping rules are first created:</p>
+</li>
+</ol>
+<h3 id="1-person-id">1. Person ID<a class="headerlink" href="#1-person-id" title="Permanent link">&para;</a></h3>
+<p>Is created for the <code>destination_field</code> of the (already found) <code>destination_table</code>:</p>
+<ul>
+<li>Every <code>CDM</code> object contains a <code>person_id</code>  </li>
+<li>The rule is built with the current <code>source_table</code> and <code>source_value</code> or <code>source_field</code>, as well as with the <code>concept</code>, linking it to the <code>destination_table</code>.  </li>
+</ul>
+<h3 id="2-date-events">2. Date Events<a class="headerlink" href="#2-date-events" title="Permanent link">&para;</a></h3>
+<p>At least one date based <code>destination_field</code> of the associated <code>destination_table</code> is created:</p>
+<ul>
+<li>Every <code>CDM</code> object must contain at least one <code>date_event</code>    </li>
+<li>They are determined by the global variable <code>m_date_field_mapper</code> which is defined in <code>services_rules.py</code>:    <br />
+<div class="highlight"><pre><span></span><code><span class="n">m_date_field_mapper</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;person&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;birth_datetime&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;condition_occurrence&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;condition_start_datetime&#39;</span><span class="p">,</span><span class="s1">&#39;condition_end_datetime&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;measurement&#39;</span><span class="p">:[</span><span class="s1">&#39;measurement_datetime&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;observation&#39;</span><span class="p">:[</span><span class="s1">&#39;observation_datetime&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>As can be seen, most CDM objects have one date event, however <code>condition_occurrence</code> is an example where two date events are/were needed</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This was a request from the data-team to also map <code>condition_end_datetime</code>, with the current implementation, the <code>condition_start_datetime == condition_end_datetime</code>.</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>OHDSI/OMOP say the standard is to set <code>condition_end_datetime = condition_start_datetime + 30 days</code>
+Previously this was handled automatically by the ETL-Tool, and via <code>operations</code>, which is now no-longer used.</p>
+</div>
+<ul>
+<li>The rule is built with the current <code>source_table</code> from the <code>content_object</code> (<code>source_value</code> or <code>source_field</code>), as well as with the <code>concept</code>, linking it to the <code>destination_table</code>.</li>
+</ul>
+<h3 id="3-source-value">3. Source Value<a class="headerlink" href="#3-source-value" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A rule is created by finding the <code>&lt;domain&gt;_source_value</code> (<code>OmopField</code>) for the current <code>destination_table</code>. As with previous rules, the rule links this with the <code>concept</code> and the <code>source_table</code> and <code>source_field</code>.</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This rule could be duplicated for the <code>destination_field</code> called <code>value_as_number</code> (or <code>value_as_float</code>). This appears in <code>measurement</code> and is a clone of <code>source_value</code>, with a different output format (FLOAT instead of CHAR). Formatting of rules is handled by the ETL-Tool, and therefore from the mapping-pipeline point of view, these rules are the same.</p>
+</div>
+<h3 id="4-concept-id">4. Concept ID<a class="headerlink" href="#4-concept-id" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A rule is created by finding the <code>&lt;domain&gt;_concept_id</code> (<code>OmopField</code>) for the current <code>destination_table</code>. As with previous rules, the rule links this with the <code>concept</code> and the <code>source_table</code> and <code>source_field</code>.</li>
+</ul>
+<h3 id="5-source-concept-id">5. Source Concept ID<a class="headerlink" href="#5-source-concept-id" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A rule is created by finding the <code>&lt;domain&gt;_source_concept_id</code> (<code>OmopField</code>) for the current <code>destination_table</code>. As with previous rules, the rule links this with the <code>concept</code> and the <code>source_table</code> and <code>source_field</code>.</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>In the current implementation and validation, we force all concept IDs to be Standard. This means that always <code>&lt;domain&gt;_source_concept_id == &lt;domain&gt;_concept_id</code>. We may need to review this for the future and allow a <code>source_concept</code> and aswell as a <code>concept</code> object to be saved to a <code>ScanReportConcept</code>. The logic could be that if a <code>source_concept</code> is not <code>null</code> then <code>&lt;domain&gt;_source_concept_id != &lt;domain&gt;_concept_id</code>, which would not affect exisiting <code>ScanReportConcept</code> objects that are in the current database.</p>
+</div>
+<h3 id="schematic-diagram">Schematic Diagram<a class="headerlink" href="#schematic-diagram" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../images/save_mapping_rules.png" /></p>
+<h2 id="downloading-rules">Downloading Rules<a class="headerlink" href="#downloading-rules" title="Permanent link">&para;</a></h2>
+<p>In <code>services_rules.py</code> the function
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_mapping_rules_json</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">QuerySet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</code></pre></div>
+builds a dictionary that is converted to a <code>json</code> format before it is downloaded when the "Download Mapping Rules" button is clicked.</p>
+<p>The function works as follows:
+Given a query set of all <code>StructuralMappingRules</code> associated to a given <code>ScanReport</code>:</p>
+<ol>
+<li>Group them based on the associated ScanReportConcept (object that spawned them)   </li>
+<li>Create a dictionary to contain each destination_table    </li>
+<li>Start looping over all rules associated to each ScanReportConcept (&gt;=5 rules)   </li>
+<li>Retrieve the source_table, source_field, destination_field from the <code>StrucuralMappingRule</code>   </li>
+<li>If the <code>destination_field</code> is a <code>concept_id</code> add "Term Mapping" to the output json. Add this as
+       map or a scalar, depending on if it’s a ScanReportValue or ScanReportField that is to be mapped   </li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../nlp-processing/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              NLP Processing
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../API/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              API
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+ 
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

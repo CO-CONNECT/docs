@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Explore datasets python - CO-CONNECT Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="co-connect" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connecting-to-postgresql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CO-CONNECT Docs" class="md-header__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CO-CONNECT Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Explore datasets python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CO-CONNECT Docs" class="md-nav__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    CO-CONNECT Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Azure Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/RunningLocally/" class="md-nav__link">
+        LocalFunctions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/processQueue/" class="md-nav__link">
+        ProcessQueue
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mapping-Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mapping-Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mapping-Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/uploading-scan-report/" class="md-nav__link">
+        Uploading a Report
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/nlp-processing/" class="md-nav__link">
+        NLP Processing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/mapping-rules/" class="md-nav__link">
+        Mapping Rules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CO-CONNECT Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CO-CONNECT Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CO-CONNECT Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CommonDataModel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CommonDataModel" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CommonDataModel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/CommonDataModel/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Tables
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tables" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tables
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Common/" class="md-nav__link">
+        Common
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Person/" class="md-nav__link">
+        Person
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/ConditionOccurrence/" class="md-nav__link">
+        Condition Occurrence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Measurement/" class="md-nav__link">
+        Measurement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Observation/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        ETL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ETL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          ETL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/notebooks/Introduction%20-%20Using%20the%20ETLTool/" class="md-nav__link">
+        Workbook Example
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-postgresql" class="md-nav__link">
+    Connecting to Postgresql
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting to Postgresql">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-python-packages" class="md-nav__link">
+    Install python packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-a-database" class="md-nav__link">
+    Connect to a database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-the-databases-and-datasets" class="md-nav__link">
+    Inspecting the databases and datasets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-to-pandas-dataframe" class="md-nav__link">
+    SQL to Pandas Dataframe
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL to Pandas Dataframe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#displaying-a-dataframe" class="md-nav__link">
+    Displaying a Dataframe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-a-series" class="md-nav__link">
+    Inspecting a Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-a-dataframe" class="md-nav__link">
+    Filtering a DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plotting-data" class="md-nav__link">
+    Plotting Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Explore datasets python</h1>
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The virtual machine contains multiple datasets in <code>csv</code> files as well as stored in a <code>postgresql</code> server.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="connecting-to-postgresql">Connecting to Postgresql<a class="headerlink" href="#connecting-to-postgresql" title="Permanent link">&para;</a></h2>
+<p>Firstly, import the python modules we want to use..</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sql</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="install-python-packages">Install python packages<a class="headerlink" href="#install-python-packages" title="Permanent link">&para;</a></h3>
+<p>If you don't have this module installed, you can open the terminal and install via:
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install python3-pip
+pip3 install sqlachemy pandas matplotlib
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="connect-to-a-database">Connect to a database<a class="headerlink" href="#connect-to-a-database" title="Permanent link">&para;</a></h3>
+<p>Give the ip address of the VirtualBox, if you are running these from inside the VirtualBox there you want to just use :</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span> <span class="c1">#or 127.0.0.1</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you have exposed the VirtualBox to your local network, or even the web, then specify that IP address</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s1">&#39;192.168.0.104&#39;</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create an engine that connects to the postgres database that runs inside the VirtualBox</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">ngin</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;postgresql://etldev:etldev@</span><span class="si">{</span><span class="n">ip_address</span><span class="si">}</span><span class="s1">:5432/postgres&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Establish a connection to it:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">cnx</span> <span class="o">=</span> <span class="n">ngin</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="inspecting-the-databases-and-datasets">Inspecting the databases and datasets<a class="headerlink" href="#inspecting-the-databases-and-datasets" title="Permanent link">&para;</a></h3>
+<p>We can use the inspector to see what databases (schemas) are available to use</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">inspector</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ngin</span><span class="p">)</span>
+<span class="p">[</span><span class="n">schema</span> <span class="k">for</span> <span class="n">schema</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_schema_names</span><span class="p">()</span> <span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>[&#39;information_schema&#39;,
+ &#39;omop_vocabulary&#39;,
+ &#39;public&#39;,
+ &#39;synthea_etl&#39;,
+ &#39;synthea_omop&#39;,
+ &#39;synthea_omop_results&#39;,
+ &#39;synthea_raw&#39;]</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Picking the raw "synthea" data, we can see what datasets (tables) are contained within the <code>synthea_raw</code> database:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">inspector</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="s1">&#39;synthea_raw&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>[&#39;allergies&#39;,
+ &#39;careplans&#39;,
+ &#39;conditions&#39;,
+ &#39;devices&#39;,
+ &#39;encounters&#39;,
+ &#39;imaging_studies&#39;,
+ &#39;immunizations&#39;,
+ &#39;observations&#39;,
+ &#39;organizations&#39;,
+ &#39;patients&#39;,
+ &#39;payer_transitions&#39;,
+ &#39;medications&#39;,
+ &#39;payers&#39;,
+ &#39;procedures&#39;,
+ &#39;providers&#39;,
+ &#39;supplies&#39;]</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="sql-to-pandas-dataframe">SQL to Pandas Dataframe<a class="headerlink" href="#sql-to-pandas-dataframe" title="Permanent link">&para;</a></h2>
+<p>Using a quick function we can load the full table into a <code>pandas</code> dataframe and print what is given by the first 'row' of the table.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_df</span><span class="p">(</span><span class="n">schema_name</span><span class="p">,</span><span class="n">table_name</span><span class="p">):</span>
+    <span class="n">selection</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT</span>
+<span class="s1">*</span>
+<span class="s1">FROM </span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1"></span>
+<span class="s1">&#39;&#39;&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">schema_name</span><span class="p">,</span><span class="n">table_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span><span class="n">ngin</span><span class="p">)</span>
+
+<span class="n">df_conditions</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">(</span><span class="s1">&#39;synthea_raw&#39;</span><span class="p">,</span><span class="s1">&#39;conditions&#39;</span><span class="p">)</span>
+<span class="n">df_conditions</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>start                                      2001-07-09
+stop                                             None
+patient          0e517b72-2d1f-47f5-be31-ebf777539755
+encounter        6d0fcf84-4411-478f-b4e4-fba643da0e61
+code                                        128613002
+description                          Seizure disorder
+load_table_id                              conditions
+load_row_id                                         1
+Name: 0, dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="displaying-a-dataframe">Displaying a Dataframe<a class="headerlink" href="#displaying-a-dataframe" title="Permanent link">&para;</a></h3>
+<p>By using <code>set_index()</code> we can organise the table a bit better to display the data for each patient. Using <code>drop()</code> we can remove the unnessary column <code>load_table_id</code> which is just <code>conditions</code> for all data entries.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_conditions</span> <span class="o">=</span> <span class="n">df_conditions</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;patient&#39;</span><span class="p">,</span><span class="s1">&#39;encounter&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;load_table_id&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_conditions</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>start</th>
+      <th>stop</th>
+      <th>description</th>
+      <th>load_row_id</th>
+    </tr>
+    <tr>
+      <th>patient</th>
+      <th>encounter</th>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th rowspan="4" valign="top">0e517b72-2d1f-47f5-be31-ebf777539755</th>
+      <th rowspan="2" valign="top">6d0fcf84-4411-478f-b4e4-fba643da0e61</th>
+      <th>128613002</th>
+      <td>2001-07-09</td>
+      <td>None</td>
+      <td>Seizure disorder</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>703151001</th>
+      <td>2001-07-09</td>
+      <td>None</td>
+      <td>History of single seizure (situation)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9156490c-ccef-40a0-bba7-a27b4691e333</th>
+      <th>84757009</th>
+      <td>2001-09-10</td>
+      <td>None</td>
+      <td>Epilepsy</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>e670e3f9-067f-43da-8444-c4d236b002ce</th>
+      <th>40055000</th>
+      <td>2006-04-02</td>
+      <td>None</td>
+      <td>Chronic sinusitis (disorder)</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4773cd3e-f603-4ef7-8088-4c75bc9b5259</th>
+      <th>def28c54-0b05-4171-99b3-2da43460d7b3</th>
+      <th>162864005</th>
+      <td>1947-03-31</td>
+      <td>None</td>
+      <td>Body mass index 30+ - obesity (finding)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">51c0750a-e2db-4e4f-b8d3-9e9d572dfb41</th>
+      <th rowspan="5" valign="top">bc44e5e2-6ae0-4e17-9074-838f5c39c3ab</th>
+      <th>68962001</th>
+      <td>2020-02-28</td>
+      <td>2020-03-29</td>
+      <td>Muscle pain (finding)</td>
+      <td>15441</td>
+    </tr>
+    <tr>
+      <th>57676002</th>
+      <td>2020-02-28</td>
+      <td>2020-03-29</td>
+      <td>Joint pain (finding)</td>
+      <td>15442</td>
+    </tr>
+    <tr>
+      <th>36955009</th>
+      <td>2020-02-28</td>
+      <td>2020-03-29</td>
+      <td>Loss of taste (finding)</td>
+      <td>15443</td>
+    </tr>
+    <tr>
+      <th>840544004</th>
+      <td>2020-02-28</td>
+      <td>2020-02-28</td>
+      <td>Suspected COVID-19</td>
+      <td>15444</td>
+    </tr>
+    <tr>
+      <th>840539006</th>
+      <td>2020-02-28</td>
+      <td>2020-03-29</td>
+      <td>COVID-19</td>
+      <td>15445</td>
+    </tr>
+  </tbody>
+</table>
+<p>15445 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="inspecting-a-series">Inspecting a Series<a class="headerlink" href="#inspecting-a-series" title="Permanent link">&para;</a></h3>
+<p>We can look at the column (or series) for <code>description</code> and count the number of unique values (number of times this was a registered condition). Using <code>head(10)</code> we can display the top 10 ranked conditions that appear.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_conditions</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Viral sinusitis (disorder)                 1284
+Suspected COVID-19                          911
+COVID-19                                    881
+Fever (finding)                             804
+Acute viral pharyngitis (disorder)          709
+Cough (finding)                             622
+Acute bronchitis (disorder)                 580
+Normal pregnancy                            516
+Body mass index 30+ - obesity (finding)     489
+Loss of taste (finding)                     440
+Name: description, dtype: int64</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="filtering-a-dataframe">Filtering a DataFrame<a class="headerlink" href="#filtering-a-dataframe" title="Permanent link">&para;</a></h3>
+<p>Next, we use filter the dataframe into just two columns: the start (date) and description of the condition.<br />
+We also call two additional functions:
+1. <code>pd.to_datetime()</code> helps by converting the date from a string into an datetime object
+2. <code>sort_values()</code> helps by ordering the column based on the date</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_small</span> <span class="o">=</span> <span class="n">df_conditions</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;start&#39;</span><span class="p">,</span><span class="s1">&#39;description&#39;</span><span class="p">]]</span>
+<span class="n">df_small</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_small</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span>
+<span class="n">df_small</span> <span class="o">=</span> <span class="n">df_small</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="n">df_small</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We are able to filter the to an even smaller dataframe by requiring the date of <code>start</code> to be from 2019 onwards</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_small_from_2019</span> <span class="o">=</span> <span class="n">df_small</span><span class="p">[</span><span class="n">df_small</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2019&#39;</span><span class="p">]</span>
+<span class="n">df_small_from_2019</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start</th>
+      <th>description</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>13354</th>
+      <td>2019-01-02</td>
+      <td>Fracture of ankle</td>
+    </tr>
+    <tr>
+      <th>2039</th>
+      <td>2019-01-03</td>
+      <td>Acute bronchitis (disorder)</td>
+    </tr>
+    <tr>
+      <th>5072</th>
+      <td>2019-01-03</td>
+      <td>Viral sinusitis (disorder)</td>
+    </tr>
+    <tr>
+      <th>11537</th>
+      <td>2019-01-04</td>
+      <td>Acute bronchitis (disorder)</td>
+    </tr>
+    <tr>
+      <th>1929</th>
+      <td>2019-01-04</td>
+      <td>Cardiac Arrest</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7351</th>
+      <td>2020-06-11</td>
+      <td>Viral sinusitis (disorder)</td>
+    </tr>
+    <tr>
+      <th>5037</th>
+      <td>2020-06-11</td>
+      <td>Neuropathy due to type 2 diabetes mellitus (di...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>2020-06-14</td>
+      <td>Normal pregnancy</td>
+    </tr>
+    <tr>
+      <th>14300</th>
+      <td>2020-06-14</td>
+      <td>Sprain of ankle</td>
+    </tr>
+    <tr>
+      <th>4220</th>
+      <td>2020-06-16</td>
+      <td>Viral sinusitis (disorder)</td>
+    </tr>
+  </tbody>
+</table>
+<p>7253 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We make a series of new dataframes by filtering based on the description</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_viral</span> <span class="o">=</span> <span class="n">df_small_from_2019</span><span class="p">[</span><span class="n">df_small_from_2019</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Viral&#39;</span><span class="p">)]</span>
+<span class="n">df_pregnancy</span> <span class="o">=</span> <span class="n">df_small_from_2019</span><span class="p">[</span><span class="n">df_small_from_2019</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;pregnancy&#39;</span><span class="p">)]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">df_viral</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pregnancy</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(180, 66)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Further splitting up a dataframe for COVID-19 cases into confirmed and suspected cases</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_covid</span> <span class="o">=</span> <span class="n">df_small_from_2019</span><span class="p">[</span><span class="n">df_small_from_2019</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;covid&#39;</span><span class="p">,</span><span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+
+<span class="n">df_suspected_covid</span> <span class="o">=</span> <span class="n">df_covid</span><span class="p">[</span><span class="n">df_covid</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Suspected&#39;</span><span class="p">)]</span>
+<span class="n">df_confirmed_covid</span> <span class="o">=</span> <span class="n">df_covid</span><span class="p">[</span><span class="n">df_covid</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Suspected&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">]</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">df_covid</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">df_suspected_covid</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">df_confirmed_covid</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(1792, 911, 881)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="plotting-data">Plotting Data<a class="headerlink" href="#plotting-data" title="Permanent link">&para;</a></h3>
+<p>We can now use <code>matplotlib</code> to make histograms showing the number of cases of various filtered conditions as a function of the start date.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">_</span><span class="p">,</span><span class="n">bins</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_viral</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Viral&#39;</span><span class="p">,</span>
+                   <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_pregnancy</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Pregnancy&#39;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_confirmed_covid</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Confirmed COVID-19&#39;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_suspected_covid</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Suspected COVID-19&#39;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of cases encountered&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAAE9CAYAAAAxl0KAAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy8li6FKAAAgAElEQVR4nO3dd5hV1bn48e9LFwuKqDFiQMBCH2HAKBERQ1GDWFAkJoqKiDca9fozIYktSorlJlHMjRJRNBeFCJgEy9UYwRajDAoKVkyIYrwIFoodWb8/5jCZoR6GOXPOmfl+nmcezl5n77Xf/U592WutHSklJEmSJEnQIN8BSJIkSVKhsECSJEmSpAwLJEmSJEnKsECSJEmSpAwLJEmSJEnKsECSJEmSpIxG+Q5gW7Rq1Sq1bds232FIkiRJKlBz585dnlLaLdv9i7pAatu2LWVlZfkOQ5IkSVKBioh/bs3+RTnELiKGRMSEFStW5DsUSZIkSXVIURZIKaWZKaXRLVq0yHcokiRJkuqQoiyQJEmSJCkXinoO0sZ8/vnnLFmyhE8++STfoajANWvWjNatW9O4ceN8hyJJkqQCUecKpCVLlrDjjjvStm1bIiLf4ahApZR49913WbJkCfvss0++w5EkSVKBKMohdptbpOGTTz5h1113tTjSZkUEu+66q3caJUmSVEVR3kFKKc0EZpaWlp61sfcjgjMnzclpDBNH9spp/8o9i2hJkiStryjvIBWyww8/nAcffLBK269+9StOP/10hg0bttX97bDDDjUVmiRJkqQtKMo7SIVsxIgRTJkyhUGDBlW0TZkyhWuuuYa+fftusP+aNWto1MhPgyRJKixvjjmnxvvc+6bf1HifUk3zL/MaNmzYMC655BI+++wzmjRpwuLFi/nXv/7F3nvvTZcuXViwYAGTJk1ixowZrF69mi+++IL77ruPoUOH8v777/P5558zbtw4hg4dmu9LkSRJ9dgLyxfUeJ9713iPUs2rNwXSts4ZynZOU8uWLenduzcPPPAAQ4cOZcqUKZx00kkbzHd59tlnef7552nZsiVr1qzhnnvuYaeddmL58uV89atf5ZhjjnGOjCRJklTLinIO0uZWsSsE64bZQfnwuhEjRmywz4ABA2jZsiVQvuT0D3/4Q7p168bXv/513nrrLZYuXVqrMUuSJEkq0jtIW1rFLt+GDh3KhRdeyLPPPstHH31Ez549Wbx4cZV9tt9++4rXkydPZtmyZcydO5fGjRvTtm1bl5+WJEkF5f5zum/1MUf9Zn4OIpFyqygLpOrI9bLfle2www4cfvjhnHHGGRu9e7S+FStWsPvuu9O4cWNmzZrFP//5z1qIUpIkKXs3HnHjVh9z/28OzUEkUm4V5RC7YjBixAjmz5+fVYF0yimnUFZWRteuXbnjjjs44IADaiFCSZIkSeurN3eQatuxxx5LSqliu23btixYUL4azMiRIxk5cmTFe61ateKpp57aaD+rV6/OaZySJEmS/s07SJIkSZKUUWfvIG3rst6SJEmS6p+ivINU6Mt8S5IkSSpORVkgpZRmppRGt2jRIt+hSJIkSapDirJAkiRJkqRcqLNzkLhzeG77/+bU3PYvSZIkqdZ5BykHIoKLLrqoYvu6667jiiuuqNUYRo4cybRp0zbavs8++1BSUkKPHj02uby4JEmSVB9ZIOVA06ZNmTFjBsuXL6/W8WvWrKnhiKq69tprmTdvHj//+c85++yza/38kiRJUqGyQMqBRo0aMXr0aH75y19u8N7ixYvp378/3bp144gjjuCNN94Ayu/sjBkzhoMOOojvfe97XHHFFZx22mkceuihtGnThhkzZvC9732Prl27MnjwYD7//HMArrzySnr16kWXLl0YPXp0lYfTbknfvn1ZtGgRAP369eOCCy6gtLSU66+/nmXLlnHCCSfQq1cvevXqxZNPPgnAsmXLGDBgAJ07d2bUqFG0adOG5cuXs3jxYjp27MhZZ51F586dGThwIB9//DEAv/3tb+nVqxfdu3fnhBNO4KOPPqq45u9+97sccsghtGvXrsodr6uvvpquXbvSvXt3xo4dy+uvv06PHj0q3n/ttdeqbEuSJEk1of4USN+cum0fW+k73/kOkydPZv2lyM877zxOO+00nn/+eU455RS++93vVry3ZMkS/vrXv/KLX/wCgNdff51HHnmEP/3pT3zrW9/i8MMP54UXXmC77bbjvvvuA+Dcc89lzpw5LFiwgI8//ph777036xhnzpxJ165dK7Y/++wzysrKuOiiizj//PO58MILmTNnDtOnT2fUqFEA/PjHP6Z///4sXLiQYcOGVRR4UF60fOc732HhwoXsvPPOTJ8+HYDjjz+eOXPmMH/+fDp27MjEiRMrjnn77bd54oknuPfeexk7diwADzzwAH/84x95+umnmT9/Pt/73vdo3749LVq0YN68eQDcdtttnH766VlfqyRJkpSNurtIQ57ttNNOnHrqqdxwww1st912Fe1PPfUUM2bMAODb3/423/ve9yreO/HEE2nYsGHF9pFHHknjxo3p2rUrX3zxBYMHDwaga9euLF68GIBZs2ZxzTXX8NFHH/Hee+/RuXNnhgwZstnYLr74YsaNG8duu+1WpVgZPvzfC1s8/PDDvPjiixXbK1euZPXq1TzxxBPcc889AAwePJhddtmlYp91c5sAevbsWRHjggULuOSSS/jggw9YvXo1gwYNqjjm2GOPpUGDBnTq1ImlS5dWnPv000+nefPmALRs2RKAUaNGcdttt/GLX/yCqVOn8swzz2z2OiVJkqStVZQFUkQMAYZ06NAh36Fs1gUXXECPHj2yvtOx/fbbV9lu2rQpAA0aNKBx48ZERMX2mjVr+OSTT/iP//gPysrK2Hvvvbniiiv45JNPtniea6+9lmHDhm32/GvXruVvf/sbzZo1yyr2yvECNGzYsGKI3ciRI/nDH/5A9+7dmTRpErNnz97oMVsaHnjCCSdU3MHq2bMnu+66a9axSZIkSdkoygIppTQTmFlaWnpW1gfletnvjWjZsiUnnXQSEydO5IwzzgDgkEMOYcqUKXz7299m8uTJHHroodXuf10x1KpVK1avXs20adM2WvhUx8CBAxk/fjwXX3wxAPPmzaOkpIQ+ffrw+9//nu9///s89NBDvP/++1vsa9WqVey55558/vnnTJ48mb322muz+w8YMIArr7ySU045hebNm/Pee+/RsmVLmjVrxqBBgzjnnHOq3PmSJEmSakr9mYOUJxdddFGV1ezGjx/PbbfdRrdu3fjd737H9ddfX+2+d955Z8466yy6dOnCoEGD6NWrV02EDMANN9xAWVkZ3bp1o1OnTtx0000AXH755Tz00EN06dKFu+++my996UvsuOOOm+3rqquu4qCDDqJPnz4ccMABWzz34MGDOeaYYygtLaWkpITrrruu4r1TTjmFBg0aMHDgwG27QEmSJGkjYmtWPSs0paWlqaysrErbSy+9RMeOHX1QbI58+umnNGzYkEaNGvHUU09xzjnnVCycUBuuu+46VqxYwVVXXVUj/VV8vUiSpCruH1Z1lMtR0x7PSx/StoqIuSml0mz3L8ohdsqfN954g5NOOom1a9fSpEkTfvvb39bauY877riKlf0kSZKkXKi7BVI9vcOTa/vuuy/PPfdcXs69bvU8SZIkKVecgyRJkiRJGRZIkiRJkpRhgSRJkiRJGXV2DtK5fzk3p/3feMSNOe1fkiRJUu3zDlIO/N///R8nn3wy7du3p2fPnhx11FG8+uqr1err8ccfp3PnzpSUlPDWW2/V2INgt6Rt27ZVnt+0zurVqzn77LMrrq1fv348/fTTACxZsoShQ4ey77770r59e84//3w+++wzPvroI3bddVdWrlxZpa9jjz2WqVOnMmnSJM49t7ygveKKK9hrr70oKSlh33335fjjj+fFF1/cZJyDBw9m55135hvf+EaV9kceeYQePXrQpUsXTjvtNNasWbOtKZEkSVI9UJQFUkQMiYgJK1asyHcoG0gpcdxxx9GvXz9ef/115s6dy89+9jOWLl1arf4mT57MD37wA+bNm8dee+3FtGnTNtinNv/4HzVqFC1btuS1115j7ty53HbbbSxfvpyUEscffzzHHnssr732Gq+++iqrV6/mRz/6Ec2bN2fQoEFVVqFbsWIFTzzxBEOGDNngHBdeeCHz5s3jtddeY/jw4fTv359ly5ZtNJ6LL76Y3/3ud1Xa1q5dy2mnncaUKVNYsGABbdq04fbbb6/ZREiSJKlOKsoCKaU0M6U0ukWLFvkOZQOzZs2icePGjBkzpqKte/fuHHrooaSUuPjii+nSpQtdu3Zl6tTypchnz55Nv379GDZsGAcccACnnHIKKSVuueUWfv/733PppZdyyimnsHjxYrp06QLApEmTOOaYY+jfvz9HHHEEs2fP5rDDDmPo0KG0a9eOsWPHMnnyZHr37k3Xrl15/fXXAVi2bBknnHACvXr1olevXjz55JMAvPvuuwwcOJDOnTszatQoNvYA4ddff52nn36acePG0aBB+ZfOPvvsw9FHH80jjzxCs2bNOP300wFo2LAhv/zlL7n11lv56KOPGDFiBFOmTKno65577mHQoEE0b958s/kcPnw4AwcO5M4779zo+0cccQQ77rhjlbZ3332XJk2asN9++wEwYMAApk+fvtnzSJIkSVCH5yCtb1vnDGU7p2nBggX07Nlzo+/NmDGDefPmMX/+fJYvX06vXr3o27cvAM899xwLFy7ky1/+Mn369OHJJ59k1KhRPPHEE3zjG99g2LBhLF68uEp/zz77LM8//zwtW7Zk9uzZzJ8/n5deeomWLVvSrl07Ro0axTPPPMP111/P+PHj+dWvfsX555/PhRdeyNe+9jXeeOMNBg0axEsvvcSPf/xjvva1r3HZZZdx3333MXHixA3iX7hwISUlJTRs2HCj761/3TvttBNf+cpXWLRoEYMGDWLUqFG8++677LrrrkyZMqViWN2W9OjRg5dffjmrfQFatWrFmjVrKCsro7S0lGnTpvHmm29mfbwkSZLqr3pTIBWCJ554ghEjRtCwYUP22GMPDjvsMObMmcNOO+1E7969ad26NQAlJSUsXryYr33ta5vtb8CAAbRs2bJiu1evXuy5554AtG/fnoEDBwLQtWtXZs2aBcDDDz9cZU7PypUrWb16NY899hgzZswA4Oijj2aXXXapuQsHmjRpwjHHHMO0adM44YQTeO655xg0aFBWx27sbtbmRARTpkzhwgsv5NNPP2XgwIEbLeokSZKk9Vkg1bDOnTtvdJ7QljRt2rTidcOGDbOaV7T99ttvso8GDRpUbDdo0KCiv7Vr1/K3v/2NZs2abXWMnTt3Zv78+XzxxRcbFBydOnXa4LpXrlzJG2+8QYcOHQAYMWIEV111FSklhg4dSuPGjbM673PPPUdpaSlPP/00Z599NgBXXnklxxxzzCaPOfjgg3n88ccBeOihh6q9SIYkSZLql3pTIOV62e91+vfvzw9/+EMmTJjA6NGjAXj++edZsWIFhx56KDfffDOnnXYa7733Ho899hjXXnvtVg0f21YDBw5k/PjxXHzxxQDMmzePkpIS+vbty5133skll1zCAw88wPvvv7/Bse3bt6e0tJTLL7+cq666iohg8eLFLFy4kKOOOoqxY8dyxx13cOqpp/LFF19w0UUXMXLkyIp5Rv369ePUU0/l17/+NTfccENW8U6fPp2HHnqI//qv/2K33XZj3rx5WR33zjvvsPvuu/Ppp59y9dVX86Mf/SjLDEmSJKk+K8pFGgpZRHDPPffw8MMP0759ezp37swPfvADvvSlL3HcccfRrVs3unfvTv/+/bnmmmv40pe+VKvx3XDDDZSVldGtWzc6derETTfdBMDll1/OY489RufOnZkxYwZf+cpXNnr8LbfcwtKlS+nQoQNdunRh5MiR7L777hXXfffdd7Pvvvuy33770axZM376059WHNugQQOGDRvGu+++y2GHHbbJGH/5y19WLPP9P//zPzzyyCPstttuG9330EMP5cQTT+Qvf/kLrVu35sEHHwTg2muvpWPHjnTr1o0hQ4bQv3//6qZMkiRJ9Uhs7fyOQlJaWprKysqqtL300kt07NjRB8UqK+u+XiRJUlX3Dzu0yvZR0x7PSx/StoqIuSml0mz39w6SJEmSJGXU2TlI3uGRJEmStLXqbIEkSZJUH7055px8hyAVNQskSZKkOuSF5QvyHYJU1JyDJEmSJEkZdfYOUq5vL+99029y2r8kSZKk2ldnC6R8+slPfsKdd95Jw4YNadCgATfffDMHHXRQXmKZN28e//rXvzjqqKO26rh+/fpx3XXXUVpadUXEzz//nEsvvZTp06ez44470rRpUy677DKOPPJIVqxYwXnnncdf//pXUkr06dOH8ePH06JFC9q1a8cDDzzA/vvvX9HXBRdcwJ577slBBx3Eddddx7333sukSZO4+OKLad26NatXr6Zdu3ZcfvnlHHLIIRuN84wzzuDee+9l9913Z8GCfw8pmD9/PmPGjGH16tW0bduWyZMns9NOO21VDiRJqgvuP6d7jfSzdX9JSMWrKAukiBgCDOnQoUO+Q9nAU089xb333suzzz5L06ZNWb58OZ999lne4pk3bx5lZWVbXSBtyqWXXsrbb7/NggULaNq0KUuXLuXRRx8F4Mwzz6RLly7ccccdQPnDZ0eNGsXdd9/NySefzJQpU7j88ssBWLt2LdOmTePJJ5/kH//4R5VzDB8+nBtvLF+FcNasWRx//PHMmjVro88rGjlyJOeeey6nnnpqlfZRo0Zx3XXXcdhhh3Hrrbdy7bXXctVVV9VIDiRJKiau7CttnaKcg5RSmplSGt2iRYt8h7KBt99+m1atWtG0aVMAWrVqxZe//GUA2rZty/LlywEoKyujX79+ADz66KOUlJRQUlLCgQceyKpVq5g9ezZ9+/bl6KOPZv/992fMmDGsXbsWgIceeoiDDz6YHj16cOKJJ7J69WoA5syZwyGHHEL37t3p3bs3K1as4LLLLmPq1KmUlJQwdepUPvzwQ8444wx69+7NgQceyB//+EcAPv74Y04++WQ6duzIcccdx8cff7zBtX300Uf89re/Zfz48RXXt8cee3DSSSexaNEi5s6dy6WXXlqx/2WXXUZZWRmvv/46I0aMYOrUqRXvPfbYY7Rp04Y2bdpsNp+HH344o0ePZsKECRt9v2/fvrRs2XKD9ldffZW+ffsCMGDAAKZPn77Z80iSJElQpHeQqmNb5wxlO6dp4MCBXHnlley33358/etfZ/jw4Rx22GGbPea6667j17/+NX369GH16tU0a9YMgGeeeYYXX3yRNm3aMHjwYGbMmEG/fv0YN24cDz/8MNtvvz1XX301v/jFLxg7dizDhw9n6tSp9OrVi5UrV9K8eXOuvPJKysrKKu7I/PCHP6R///7ceuutfPDBB/Tu3Zuvf/3r3HzzzTRv3pyXXnqJ559/nh49emwQ56JFi/jKV76y0aFqL774IiUlJTRs2LCirWHDhpSUlLBw4UKOOeYYGjRowPz58+nevTtTpkxhxIgRWeW0R48e3HzzzVntu07nzp354x//yLHHHsvdd9/Nm2++uVXHS5IkqX4qyjtIhWyHHXZg7ty5TJgwgd12243hw4czadKkzR7Tp08f/vM//5MbbriBDz74gEaNyuvW3r17065dOxo2bMiIESN44okn+Nvf/saLL75Inz59KCkp4fbbb+ef//wnr7zyCnvuuSe9evUCYKeddqrop7KHHnqIn//855SUlNCvXz8++eQT3njjDR577DG+9a1vAdCtWze6detWs4kBRowYwZQpU1izZg1/+MMfOPHEE7M6LqW01ee69dZb+e///m969uzJqlWraNKkyVb3IUmSpPqn3txBqk0NGzakX79+9OvXj65du3L77bczcuRIGjVqVDFM7pNPPqnYf+zYsRx99NHcf//99OnThwcffBCAiKjSb0SQUmLAgAHcddddVd574YUXsootpcT06dOrLJaQrQ4dOvDGG2+wcuXKDe4iderUiXnz5rF27VoaNCivu9euXcu8efPo1KkTACeffDIDBw7ksMMOo1u3buyxxx5Znfe5556jY8eOvPnmmwwZMgSAMWPGMGbMmE0ec8ABB/DQQw8B5cPt7rvvvq2+XkmSJNU/9aZAqq2nSr/yyis0aNCAfffdFyhfJGHdPJu2bdsyd+5cjjzyyCpzYl5//XW6du1K165dmTNnDi+//DI777wzzzzzDP/4xz9o06YNU6dOZfTo0Xz1q1/lO9/5DosWLaJDhw58+OGHvPXWW+y///68/fbbzJkzh169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
+"
+>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+ 
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

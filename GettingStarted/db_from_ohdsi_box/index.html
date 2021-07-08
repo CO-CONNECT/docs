@@ -1,0 +1,1473 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Db from ohdsi box - CO-CONNECT Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="co-connect" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CO-CONNECT Docs" class="md-header__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CO-CONNECT Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Db from ohdsi box
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CO-CONNECT Docs" class="md-nav__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    CO-CONNECT Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Azure Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/RunningLocally/" class="md-nav__link">
+        LocalFunctions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/processQueue/" class="md-nav__link">
+        ProcessQueue
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mapping-Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mapping-Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mapping-Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/uploading-scan-report/" class="md-nav__link">
+        Uploading a Report
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/nlp-processing/" class="md-nav__link">
+        NLP Processing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/mapping-rules/" class="md-nav__link">
+        Mapping Rules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CO-CONNECT Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CO-CONNECT Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CO-CONNECT Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CommonDataModel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CommonDataModel" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CommonDataModel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/CommonDataModel/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Tables
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tables" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tables
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Common/" class="md-nav__link">
+        Common
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Person/" class="md-nav__link">
+        Person
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/ConditionOccurrence/" class="md-nav__link">
+        Condition Occurrence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Measurement/" class="md-nav__link">
+        Measurement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Observation/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        ETL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ETL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          ETL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/notebooks/Introduction%20-%20Using%20the%20ETLTool/" class="md-nav__link">
+        Workbook Example
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Db from ohdsi box</h1>
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sql</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">ngin</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;postgresql://etldev:etldev@192.168.0.104:5432/postgres&#39;</span><span class="p">)</span>
+<span class="n">cnx</span> <span class="o">=</span> <span class="n">ngin</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="n">inspector</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">ngin</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_df</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span><span class="n">table_name</span><span class="p">):</span>
+    <span class="n">selection</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT</span>
+<span class="s1">*</span>
+<span class="s1">FROM </span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1"></span>
+<span class="s1">&#39;&#39;&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span><span class="n">table_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span><span class="n">ngin</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">schema</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_schema_names</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>information_schema
+omop_vocabulary
+public
+synthea_etl
+synthea_omop
+synthea_omop_results
+synthea_raw
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">schema</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_schema_names</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;===== </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s1"> ===== &#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> &#39;</span><span class="p">,</span><span class="n">table</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>===== information_schema ===== 
+      sql_parts
+      sql_languages
+      sql_features
+      sql_implementation_info
+      sql_packages
+      sql_sizing
+      sql_sizing_profiles
+===== omop_vocabulary ===== 
+      concept
+      vocabulary
+      domain
+      concept_class
+      concept_relationship
+      relationship
+      concept_synonym
+      concept_ancestor
+      drug_strength
+===== public ===== 
+===== synthea_etl ===== 
+      source_to_standard_vocab_map
+===== synthea_omop ===== 
+      condition_era
+      measurement
+      care_site
+      cost
+      dose_era
+      drug_era
+      fact_relationship
+      observation
+      payer_plan_period
+      provider
+      metadata
+      source_to_concept_map
+      visit_occurrence
+      specimen
+      death
+      visit_detail
+      cdm_source
+      condition_occurrence
+      device_exposure
+      drug_exposure
+      location
+      note
+      note_nlp
+      observation_period
+      person
+      procedure_occurrence
+===== synthea_omop_results ===== 
+      dqdashboard_results
+      achilles_analysis
+      achilles_results_derived
+      achilles_heel_results
+      achilles_results
+      achilles_results_dist
+===== synthea_raw ===== 
+      allergies
+      careplans
+      conditions
+      devices
+      encounters
+      imaging_studies
+      immunizations
+      observations
+      organizations
+      patients
+      payer_transitions
+      medications
+      payers
+      procedures
+      providers
+      supplies
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_patients</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">(</span><span class="s1">&#39;synthea_raw&#39;</span><span class="p">,</span><span class="s1">&#39;patients&#39;</span><span class="p">)</span>
+<span class="n">df_patients</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>birthdate</th>
+      <th>deathdate</th>
+      <th>ssn</th>
+      <th>drivers</th>
+      <th>passport</th>
+      <th>prefix</th>
+      <th>first</th>
+      <th>last</th>
+      <th>suffix</th>
+      <th>...</th>
+      <th>city</th>
+      <th>state</th>
+      <th>county</th>
+      <th>zip</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>healthcare_expenses</th>
+      <th>healthcare_coverage</th>
+      <th>load_table_id</th>
+      <th>load_row_id</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>d27e78f9-55c7-40ec-9922-e05d49a4c8a5</td>
+      <td>1998-04-21</td>
+      <td>2012-10-23</td>
+      <td>999-82-2767</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Domingo513</td>
+      <td>Maggio310</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Fall River</td>
+      <td>Massachusetts</td>
+      <td>Bristol County</td>
+      <td>02720</td>
+      <td>41.566987</td>
+      <td>-71.047715</td>
+      <td>317032.72</td>
+      <td>2258.12</td>
+      <td>patients</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9983811a-1cd8-4468-90ac-cde90f6a6b23</td>
+      <td>2008-10-17</td>
+      <td>None</td>
+      <td>999-49-2108</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Patti584</td>
+      <td>Hane680</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Melrose</td>
+      <td>Massachusetts</td>
+      <td>Middlesex County</td>
+      <td>02176</td>
+      <td>42.457218</td>
+      <td>-71.100029</td>
+      <td>34877.84</td>
+      <td>3335.35</td>
+      <td>patients</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3b877771-2916-4e03-a1df-9b656b9f9f36</td>
+      <td>1963-07-01</td>
+      <td>1969-11-17</td>
+      <td>999-74-6598</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>Sarina640</td>
+      <td>Metz686</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Warren</td>
+      <td>Massachusetts</td>
+      <td>Worcester County</td>
+      <td>01585</td>
+      <td>42.187558</td>
+      <td>-72.205794</td>
+      <td>5817.79</td>
+      <td>0.00</td>
+      <td>patients</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4773cd3e-f603-4ef7-8088-4c75bc9b5259</td>
+      <td>1910-01-10</td>
+      <td>1975-07-21</td>
+      <td>999-26-6281</td>
+      <td>S99929918</td>
+      <td>X2326739X</td>
+      <td>Mr.</td>
+      <td>Eddie505</td>
+      <td>Bergnaum523</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Topsfield</td>
+      <td>Massachusetts</td>
+      <td>Essex County</td>
+      <td>None</td>
+      <td>42.669755</td>
+      <td>-70.948110</td>
+      <td>1494810.11</td>
+      <td>5827.68</td>
+      <td>patients</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0e517b72-2d1f-47f5-be31-ebf777539755</td>
+      <td>1988-07-12</td>
+      <td>None</td>
+      <td>999-55-8595</td>
+      <td>S99987865</td>
+      <td>X65684413X</td>
+      <td>Mr.</td>
+      <td>Toney527</td>
+      <td>Hane680</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Waltham</td>
+      <td>Massachusetts</td>
+      <td>Middlesex County</td>
+      <td>02472</td>
+      <td>42.418380</td>
+      <td>-71.201179</td>
+      <td>696325.58</td>
+      <td>10922.02</td>
+      <td>patients</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1220</th>
+      <td>7fc69c44-b59c-4801-91ef-f378f2680b7b</td>
+      <td>1919-04-10</td>
+      <td>2008-09-18</td>
+      <td>999-58-3340</td>
+      <td>S99997252</td>
+      <td>X881694X</td>
+      <td>Mrs.</td>
+      <td>Pearly845</td>
+      <td>McLaughlin530</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Haverhill</td>
+      <td>Massachusetts</td>
+      <td>Essex County</td>
+      <td>01832</td>
+      <td>42.791103</td>
+      <td>-71.056032</td>
+      <td>1594169.70</td>
+      <td>204103.79</td>
+      <td>patients</td>
+      <td>1221</td>
+    </tr>
+    <tr>
+      <th>1221</th>
+      <td>c40558d0-31ed-4685-b518-676c66daa182</td>
+      <td>1919-04-10</td>
+      <td>2000-10-28</td>
+      <td>999-31-6022</td>
+      <td>S99979126</td>
+      <td>X47776825X</td>
+      <td>Mrs.</td>
+      <td>Arletha291</td>
+      <td>Ziemann98</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Haverhill</td>
+      <td>Massachusetts</td>
+      <td>Essex County</td>
+      <td>None</td>
+      <td>42.795330</td>
+      <td>-71.107308</td>
+      <td>1463521.76</td>
+      <td>19584.36</td>
+      <td>patients</td>
+      <td>1222</td>
+    </tr>
+    <tr>
+      <th>1222</th>
+      <td>2e84e6e2-5d09-44b7-9bda-44e52e1f7b4a</td>
+      <td>1919-04-10</td>
+      <td>1990-06-24</td>
+      <td>999-39-9491</td>
+      <td>S99923441</td>
+      <td>X46487992X</td>
+      <td>Mrs.</td>
+      <td>Marlen929</td>
+      <td>Becker968</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Haverhill</td>
+      <td>Massachusetts</td>
+      <td>Essex County</td>
+      <td>None</td>
+      <td>42.720813</td>
+      <td>-71.073197</td>
+      <td>1412238.08</td>
+      <td>11094.06</td>
+      <td>patients</td>
+      <td>1223</td>
+    </tr>
+    <tr>
+      <th>1223</th>
+      <td>eff80fe3-9d78-4d35-b1d5-8e99474e87d6</td>
+      <td>1934-10-29</td>
+      <td>2012-03-10</td>
+      <td>999-68-7999</td>
+      <td>S99913104</td>
+      <td>X33876402X</td>
+      <td>Ms.</td>
+      <td>Carmina141</td>
+      <td>Hackett68</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Haverhill</td>
+      <td>Massachusetts</td>
+      <td>Essex County</td>
+      <td>01832</td>
+      <td>42.830061</td>
+      <td>-71.100740</td>
+      <td>1595838.17</td>
+      <td>10888.12</td>
+      <td>patients</td>
+      <td>1224</td>
+    </tr>
+    <tr>
+      <th>1224</th>
+      <td>51c0750a-e2db-4e4f-b8d3-9e9d572dfb41</td>
+      <td>1934-10-29</td>
+      <td>None</td>
+      <td>999-97-2556</td>
+      <td>S99971181</td>
+      <td>X49554719X</td>
+      <td>Mrs.</td>
+      <td>Pinkie318</td>
+      <td>Heaney114</td>
+      <td>None</td>
+      <td>...</td>
+      <td>Haverhill</td>
+      <td>Massachusetts</td>
+      <td>Essex County</td>
+      <td>01832</td>
+      <td>42.803027</td>
+      <td>-71.094824</td>
+      <td>1571421.70</td>
+      <td>24399.49</td>
+      <td>patients</td>
+      <td>1225</td>
+    </tr>
+  </tbody>
+</table>
+<p>1225 rows × 27 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df_patients</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Index([&#39;id&#39;, &#39;birthdate&#39;, &#39;deathdate&#39;, &#39;ssn&#39;, &#39;drivers&#39;, &#39;passport&#39;, &#39;prefix&#39;,
+       &#39;first&#39;, &#39;last&#39;, &#39;suffix&#39;, &#39;maiden&#39;, &#39;marital&#39;, &#39;race&#39;, &#39;ethnicity&#39;,
+       &#39;gender&#39;, &#39;birthplace&#39;, &#39;address&#39;, &#39;city&#39;, &#39;state&#39;, &#39;county&#39;, &#39;zip&#39;,
+       &#39;lat&#39;, &#39;lon&#39;, &#39;healthcare_expenses&#39;, &#39;healthcare_coverage&#39;,
+       &#39;load_table_id&#39;, &#39;load_row_id&#39;],
+      dtype=&#39;object&#39;)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_patients</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">df_patients</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="n">series</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">series</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>id 1225 object
+birthdate 989 object
+deathdate 214 object
+ssn 1224 object
+drivers 1003 object
+passport 952 object
+prefix 4 object
+first 1032 object
+last 486 object
+suffix 4 object
+maiden 258 object
+marital 3 object
+race 5 object
+ethnicity 2 object
+gender 2 object
+birthplace 292 object
+address 1225 object
+city 233 object
+state 1 object
+county 14 object
+zip 225 object
+lat 1225 float64
+lon 1225 float64
+healthcare_expenses 1225 float64
+healthcare_coverage 1143 float64
+load_table_id 1 object
+load_row_id 1225 int64
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">cdm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;CommonDataModel/OMOP_CDM_v5_3_1.csv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;Latin-1&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">cdm</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>field</th>
+      <th>required</th>
+      <th>type</th>
+      <th>description</th>
+      <th>table</th>
+      <th>schema</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>condition_occurrence_id</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A unique identifier for each Condition Occurrence event.</td>
+      <td>condition_occurrence</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>person_id</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A foreign key identifier to the Person who is experiencing the condition. The demographic details of that Person are stored in the PERSON table.</td>
+      <td>condition_occurrence</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>condition_concept_id</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A foreign key that refers to a Standard Condition Concept identifier in the Standardized Vocabularies.</td>
+      <td>condition_occurrence</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>condition_start_date</td>
+      <td>Yes</td>
+      <td>DATE</td>
+      <td>The date when the instance of the Condition is recorded.</td>
+      <td>condition_occurrence</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>condition_start_datetime</td>
+      <td>No</td>
+      <td>DATETIME</td>
+      <td>The date and time when the instance of the Condition is recorded.</td>
+      <td>condition_occurrence</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>402</th>
+      <td>403</td>
+      <td>vocabulary_id</td>
+      <td>Yes</td>
+      <td>VARCHAR(20)</td>
+      <td>A unique identifier for each Vocabulary, such as ICD9CM, SNOMED, Visit.</td>
+      <td>vocabulary</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>403</th>
+      <td>404</td>
+      <td>vocabulary_name</td>
+      <td>Yes</td>
+      <td>VARCHAR(255)</td>
+      <td>The name describing the vocabulary, for example "International Classification of Diseases, Ninth Revision, Clinical Modification, Volume 1 and 2 (NCHS)" etc.</td>
+      <td>vocabulary</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>404</th>
+      <td>405</td>
+      <td>vocabulary_reference</td>
+      <td>Yes</td>
+      <td>VARCHAR(255)</td>
+      <td>External reference to documentation or available download of the about the vocabulary.</td>
+      <td>vocabulary</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>405</th>
+      <td>406</td>
+      <td>vocabulary_version</td>
+      <td>No</td>
+      <td>VARCHAR(255)</td>
+      <td>Version of the Vocabulary as indicated in the source.</td>
+      <td>vocabulary</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>406</th>
+      <td>407</td>
+      <td>vocabulary_concept_id</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A foreign key that refers to a standard concept identifier in the CONCEPT table for the Vocabulary the VOCABULARY record belongs to.</td>
+      <td>vocabulary</td>
+      <td>cdm</td>
+    </tr>
+  </tbody>
+</table>
+<p>407 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">cdm</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;table&#39;</span><span class="p">,</span><span class="s1">&#39;field&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>required</th>
+      <th>type</th>
+      <th>description</th>
+      <th>schema</th>
+    </tr>
+    <tr>
+      <th>table</th>
+      <th>field</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th rowspan="5" valign="top">condition_occurrence</th>
+      <th>condition_occurrence_id</th>
+      <td>1</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A unique identifier for each Condition Occurre...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>person_id</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A foreign key identifier to the Person who is ...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>condition_concept_id</th>
+      <td>3</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A foreign key that refers to a Standard Condit...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>condition_start_date</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>DATE</td>
+      <td>The date when the instance of the Condition is...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>condition_start_datetime</th>
+      <td>5</td>
+      <td>No</td>
+      <td>DATETIME</td>
+      <td>The date and time when the instance of the Con...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">vocabulary</th>
+      <th>vocabulary_id</th>
+      <td>403</td>
+      <td>Yes</td>
+      <td>VARCHAR(20)</td>
+      <td>A unique identifier for each Vocabulary, such ...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>vocabulary_name</th>
+      <td>404</td>
+      <td>Yes</td>
+      <td>VARCHAR(255)</td>
+      <td>The name describing the vocabulary, for exampl...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>vocabulary_reference</th>
+      <td>405</td>
+      <td>Yes</td>
+      <td>VARCHAR(255)</td>
+      <td>External reference to documentation or availab...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>vocabulary_version</th>
+      <td>406</td>
+      <td>No</td>
+      <td>VARCHAR(255)</td>
+      <td>Version of the Vocabulary as indicated in the ...</td>
+      <td>cdm</td>
+    </tr>
+    <tr>
+      <th>vocabulary_concept_id</th>
+      <td>407</td>
+      <td>Yes</td>
+      <td>INTEGER</td>
+      <td>A foreign key that refers to a standard concep...</td>
+      <td>cdm</td>
+    </tr>
+  </tbody>
+</table>
+<p>407 rows × 5 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+ 
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

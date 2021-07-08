@@ -1,0 +1,3 @@
+[console_scripts]
+coconnect = coconnect.cli.cli:coconnect
+

@@ -1,0 +1,814 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>NLP Processing - CO-CONNECT Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="co-connect" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CO-CONNECT Docs" class="md-header__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CO-CONNECT Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NLP Processing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CO-CONNECT Docs" class="md-nav__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    CO-CONNECT Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Azure Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/RunningLocally/" class="md-nav__link">
+        LocalFunctions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/processQueue/" class="md-nav__link">
+        ProcessQueue
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mapping-Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mapping-Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mapping-Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploading-scan-report/" class="md-nav__link">
+        Uploading a Report
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NLP Processing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NLP Processing
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-tree-workflow" class="md-nav__link">
+    Decision Tree Workflow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendingrecieving-data-tofrom-the-nlp-service" class="md-nav__link">
+    Sending/recieving data to/from the NLP service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing-the-return-from-nlp" class="md-nav__link">
+    Processing the return from NLP
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-rules/" class="md-nav__link">
+        Mapping Rules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CO-CONNECT Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CO-CONNECT Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CO-CONNECT Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CommonDataModel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CommonDataModel" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CommonDataModel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/CommonDataModel/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Tables
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tables" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tables
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Common/" class="md-nav__link">
+        Common
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Person/" class="md-nav__link">
+        Person
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/ConditionOccurrence/" class="md-nav__link">
+        Condition Occurrence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Measurement/" class="md-nav__link">
+        Measurement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Observation/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        ETL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ETL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          ETL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/notebooks/Introduction%20-%20Using%20the%20ETLTool/" class="md-nav__link">
+        Workbook Example
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-tree-workflow" class="md-nav__link">
+    Decision Tree Workflow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendingrecieving-data-tofrom-the-nlp-service" class="md-nav__link">
+    Sending/recieving data to/from the NLP service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing-the-return-from-nlp" class="md-nav__link">
+    Processing the return from NLP
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>NLP Processing</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>'NLP Processing' is the general term for converting Field/Value text strings from Scan Reports to standard and valid OMOP CDM conceptIDs using the Microsoft Health API. For example:</p>
+<blockquote>
+<p>"The patient has a cough" </p>
+</blockquote>
+<p>can--via several intermediate stages detailed below--be converted to the valid and standard conceptID of 254761. The NLP service works by picking out what it thinks is the most pertinent information in a string (in this case, the symptom 'cough') and then returning concept codes for the various vocabularies in its database. We then convert concept codes to conceptIDs by looking them up with our deployed version of the OMOP CDM and save the results to the model <code>ScanReportConcept</code>.</p>
+<p>This page is not intended to be a highly detailed dive into the exact workings of the code. Rather, it is meant to provide a reasonably detailed account of the overall NLP process. Reference is made to key functionality within the code base which can be read if more detail is required.</p>
+<p>We are currently using Microsoft Health text API version 3.1 Preview 3.</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<p>When a user clicks the 'Run NLP' button, the code performs a number of checks to determine what text string data to send to the NLP service. The final decision on what text to send for processing is determined by a combination of user input and what field/value data is available for analysis. The general rule is: if field/value metadata is available which describes the field/value in detail, then preferentially use the field/value descriptions over field/value names. This is because the NLP service stands a better chance of finding a match if it has more information to work with (up to a point).</p>
+<p><img alt="Decision tree for sending text data to the NLP service" src="https://user-images.githubusercontent.com/27423094/119468717-9c219280-bd3e-11eb-9f18-de72e955bcee.png" />
+<strong>Figure 1</strong> <em>Decision tree for sending text data to the NLP Service</em></p>
+<h3 id="decision-tree-workflow">Decision Tree Workflow<a class="headerlink" href="#decision-tree-workflow" title="Permanent link">&para;</a></h3>
+<p>After a user clicks the 'Run NLP' button:</p>
+<ol>
+<li>
+<p>Check whether the field is 'Pass From Source'. This is a user-defined flag set at the <em>field</em> level. If 'Pass from source' is set to 'Yes' then the code only processes data at the <em>field</em> level. In other words, we do not process any values associated with that field. Examples of fields which are typically set to 'pass from source' are continuous variables such as age, height and weight. We do not typically map individual heights, so there is no need to send <em>n</em> heights to the NLP service for analysis; we are only interested in mapping the field itself (in this example, 'height').</p>
+</li>
+<li>
+<p>If 'pass from source' is True, we check whether meta data is available for a given field. Here, meta data is defined as supplementary data describing the field. For some fields, the field name itself will be sufficient to attempt mapping with NLP (e.g. Field name of 'Was the patient administered ibuprofen'). However, some datasets have coded fields and the field name itself contains no useful information for NLP to work with. For example, a field name could be 'AH12345'. Such a field name can only be processed if there is some accompanying text describing the field. If metadata is available, we send the <em>field description</em>. If meta data is unavailable, we send the <em>field name</em>.</p>
+</li>
+</ol>
+<p>By the end of the decision tree, there are two different combinations for <em>fields</em>:</p>
+<ul>
+<li>Field description</li>
+<li>Field name</li>
+</ul>
+<p>If processing a value (when 'Pass From Source' is set to 'No'):</p>
+<ol>
+<li>Check whether the value is a 'negative assertion'. Negative assertions are currently set at the level of the scan report and a user must tell the system what values in the scan report are negative values. For example, in Dataset 1, negative values may be 'N' and '0' whereas in Dataset 2, negative values may be 'No' and 'Negative'. At the point, the code skips the value if it has been assigned a negative assertion. If the value is positive then:</li>
+<li>Check whether a field description is available for that value. If so, use the <em>field description</em>. If not, use the <em>field name</em>.</li>
+<li>Check whether a value description is available for that value. If so, use the <em>value descirption</em>. If not, use the <em>value name</em>. Concatenate the text strings from steps 4 and 5 for the final input into NLP.</li>
+</ol>
+<p>By the end of the decision tree, there are four different combinations for <em>values</em>:</p>
+<ul>
+<li>Field description + value description</li>
+<li>Field name + value name</li>
+<li>Field description + value name</li>
+<li>Field name + value description</li>
+</ul>
+<h2 id="sendingrecieving-data-tofrom-the-nlp-service">Sending/recieving data to/from the NLP service<a class="headerlink" href="#sendingrecieving-data-tofrom-the-nlp-service" title="Permanent link">&para;</a></h2>
+<p>After creating the various combinations of field/value names and descriptions, the data are sent as JSON to the NLP service using a <code>POST</code> request via the <code>requests</code> library. During testing, the time taken for the NLP service to process requests has varied substantially. Sometimes it can be a few seconds, other times it can take 30-40 seconds to process a single query (perhaps a function of the NLP service still being in preview.)</p>
+<p>When attempting to <code>GET</code> data back from the NLP service, the code contains a short <code>while</code> loop (in the function <code>get_data_from_nlp</code>). This is to give the API time to receive the job, queue it and process it. Only when the job status is 'complete' can a successful <code>GET</code> request take place. Data are returned as JSON. If successful, results are appended to a list for later conversion to conceptIDs.</p>
+<p>Official documentation for the NLP API can be found <a href="https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health">here</a>.</p>
+<h2 id="processing-the-return-from-nlp">Processing the return from NLP<a class="headerlink" href="#processing-the-return-from-nlp" title="Permanent link">&para;</a></h2>
+<p>The functions <code>process_nlp_response</code> and <code>concept_code_to_id</code> (both in <code>services_nlp.py</code>) are used to drill down into the returned JSON, pick out the required data, save it to a list and then look up the conceptID from the concept code. At present, we return concept code data from the following vocabularies: ICD9CM, ICD10CM, RXNORM and SNOMEDCT_US. Note that the NLP service has slightly different names/cases for some vocabularies compared to our working version of the OMOP CDM. For example: NLP = SNOWMEDCT_US/OMOP = SNOMED, NLP = RXNORM/OMOP = RxNorm. These subtle differences are taken into consideration in <code>get_concept_from_concept_code</code> in <code>services.py</code> where we convert the vocabulary names for a successful concept code lookup.</p>
+<p>Because we return data from 4 different vocabularies, it is possible to get four different concept codes for the same input string. For example, the input string "The patient has a fever" could return 4 subtly different concepts (e.g. SNOMED = "fever", ICD9 = "temperature", ICD10 = "high fever", RXNORM = "mild fever"). In such cases, the code saves all 4 concepts back to <code>ScanReportConcept</code> - the user must then delete the unwanted concepts. However, where all vocaublaries converge to the same standard and valid conceptID, the app returns only the SNOMED valid and standard conceptID. This functionality is designed to save user input when all concept codes converge to the same conceptID.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../uploading-scan-report/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Uploading a Report
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../mapping-rules/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Mapping Rules
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+ 
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

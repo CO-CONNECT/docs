@@ -1,0 +1,919 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>API - CO-CONNECT Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="co-connect" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-for-omop-and-co-connect-dbs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CO-CONNECT Docs" class="md-header__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CO-CONNECT Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CO-CONNECT Docs" class="md-nav__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    CO-CONNECT Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Azure Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/RunningLocally/" class="md-nav__link">
+        LocalFunctions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/processQueue/" class="md-nav__link">
+        ProcessQueue
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mapping-Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mapping-Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mapping-Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploading-scan-report/" class="md-nav__link">
+        Uploading a Report
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nlp-processing/" class="md-nav__link">
+        NLP Processing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-rules/" class="md-nav__link">
+        Mapping Rules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        API
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-root" class="md-nav__link">
+    API Root
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omop-db" class="md-nav__link">
+    OMOP DB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#co-connect-db" class="md-nav__link">
+    Co-Connect DB
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CO-CONNECT Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CO-CONNECT Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CO-CONNECT Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CommonDataModel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CommonDataModel" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CommonDataModel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/CommonDataModel/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Tables
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tables" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tables
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Common/" class="md-nav__link">
+        Common
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Person/" class="md-nav__link">
+        Person
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/ConditionOccurrence/" class="md-nav__link">
+        Condition Occurrence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Measurement/" class="md-nav__link">
+        Measurement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/Observation/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        ETL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ETL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          ETL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CoConnectTools/source_code/notebooks/Introduction%20-%20Using%20the%20ETLTool/" class="md-nav__link">
+        Workbook Example
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-root" class="md-nav__link">
+    API Root
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omop-db" class="md-nav__link">
+    OMOP DB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#co-connect-db" class="md-nav__link">
+    Co-Connect DB
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="api-for-omop-and-co-connect-dbs">API for OMOP and Co-Connect DBs<a class="headerlink" href="#api-for-omop-and-co-connect-dbs" title="Permanent link">&para;</a></h1>
+<p>The mapping-pipeline API allows programmtic interaction with co-connect DB and OMOP CDM DB contents. The API is developed using the Django REST framework. A token based authentication is applied to access API endpoints. API endpoints can be tested through a tool called Postman. A postman is a tool to develop and test APIs. </p>
+<h2 id="api-root">API Root<a class="headerlink" href="#api-root" title="Permanent link">&para;</a></h2>
+<p>An API root can be accessed using: <strong>http://localhost:8080/api</strong> and this endpoint lists all the available endpoints in an API (see Figure 1). Figure 1 also demonstrates that for testing API endpoints, a token is required, that can be requested to the system administrator.   </p>
+<p><img alt="" src="../images/APIRootTest_Postman.png" />
+<strong>Figure 1</strong> <em>A sample API endpoint testing through postman</em></p>
+<h2 id="omop-db">OMOP DB<a class="headerlink" href="#omop-db" title="Permanent link">&para;</a></h2>
+<p>We have implemented enpoints for following 8 tables of OMOP CDM DB. The API endpoints for these tables are read only. </p>
+<ol>
+<li>concept table: <ul>
+<li><strong>http://localhost:8080/api/omop/concepts/</strong> Returns all records in a concept table</li>
+<li><strong>http://localhost:8080/api/omop/concepts/1/</strong> Returns concept details from the concept table for concept_id=1 </li>
+<li><strong>http://localhost:8080/api/omop/conceptsfilter/?concept_code=R51&amp;vocabulary_id=ICD10CM</strong> This will return a record that has "concept_code=R51" and "vocabulary_id=ICD10CM"</li>
+</ul>
+</li>
+<li>
+<p>vocabulary table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/vocabularies/</strong> Returns all records of a vocabulary table</li>
+<li><strong>http://localhost:8080/api/omop/vocabularies/Cost/</strong> Returns a record from a vocabulary table with vocabulary id=Cost</li>
+</ul>
+</li>
+<li>
+<p>concept_relationship table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/conceptrelationships</strong> Returns all records of a concept relationship table</li>
+<li><strong>http://localhost:8080/api/omop/conceptrelationships/?concept_id_1=5&amp;concept_id_2=58&amp;relationship_id=Concept%20replaced%20by</strong> To get a unique row of concept_relationship table we need to give three query terms that consists of concept_id_1, concept_id_2 and relationship_id. However to get all records with a specific query terms for concept_id_1 or with concept_id_2 or relationship_id or any combination of these can be applied.</li>
+<li>Alternatively, for the concept_relationship table, the above two endpoints can also be used as: http://localhost:8080/api/omop/conceptrelationshipfilter and http://localhost:8080/api/omop/conceptrelationshipfilter/?concept_id_1=5&amp;concept_id_2=58&amp;relationship_id=Concept%20replaced%20by.</li>
+</ul>
+</li>
+<li>
+<p>concept_ancestor table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/conceptancestors/</strong> Returns all records of a concept_ancestor table</li>
+<li><strong>http://localhost:8080/api/omop/conceptancestors/262/</strong> Returns a record from the concept_ancestor table with concept a concept ancestor id=262</li>
+</ul>
+</li>
+<li>
+<p>concept_class table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/conceptclasses</strong> Returns all records of a concept_class table</li>
+<li><strong>http://localhost:8080/api/omop/conceptclasses/10<sup>th</sup>%20level/</strong> Returns a record from concept_class table with a concept id='10<sup>th</sup> level'</li>
+</ul>
+</li>
+<li>
+<p>concept_synonym table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/conceptsynonyms/</strong> Returns all records of a concept_synonym table</li>
+<li><strong>http://localhost:8080/api/omop/conceptsynonyms/2/</strong> Returns a record from concept_synonym table with a concept_id=2</li>
+</ul>
+</li>
+<li>
+<p>Domain Table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/domains</strong> Returns all records of a domain table</li>
+<li><strong>http://localhost:8080/api/omop/domains/Condition/</strong> Returns a record of a domain table with a domain_id='Condition'</li>
+</ul>
+</li>
+<li>
+<p>drug_strength Table: </p>
+<ul>
+<li><strong>http://localhost:8080/api/omop/drugstrengths/</strong> Returns all records of a drug_strength table</li>
+<li><strong>http://localhost:8080/api/omop/drugstrengths/?drug_concept_id=32763&amp;ingredient_concept_id=32763</strong> To get a unique row of drug_strength table we need to give two query terms that consists of drug_concept_id and ingredient_concept_id. However a query term can be defined to get all records either by giving drug_concept_id or ingredient_concept_id.)</li>
+</ul>
+</li>
+</ol>
+<h2 id="co-connect-db">Co-Connect DB<a class="headerlink" href="#co-connect-db" title="Permanent link">&para;</a></h2>
+<p>We have implemented enpoints for following 16 tables of co-connect DB. </p>
+<ol>
+<li>
+<p>mapping_scanreport table</p>
+<ul>
+<li><strong>http://localhost:8080/api/scanreports/</strong> All scan reports in a mapping_scanreport table. For this endpoint, making a put request allows to accept a json array that is beneficial in its own right with a single call to an api endpoint. </li>
+<li><strong>http://localhost:8080/api/scanreports/31/</strong> A record in a mapping_scanreport table with id=31</li>
+</ul>
+</li>
+<li>
+<p>mapping_scanreporttable table</p>
+<ul>
+<li><strong>http://localhost:8080/api/scanreporttables/</strong> All scan report tables in a mapping_scanreporttables table. For this endpoint, making a put request allows to accept a json array that is beneficial in its own right with a single call to an api endpoint. </li>
+<li><strong>http://localhost:8080/api/scanreporttables/1</strong> A record in a mapping_scanreportables table with id=1</li>
+<li><strong>http://localhost:8080/api/scanreporttablesfilter/?scan_report=1&amp;name=Freezer.csv</strong> This will return a record that has a "scan_report=1" and "name=Freezer.csv"</li>
+</ul>
+</li>
+<li>
+<p>mapping_scanreportfield table</p>
+<ul>
+<li><strong>http://localhost:8080/api/scanreportfields/</strong> All scan report fields in a mapping_scanreportfield table. For this endpoint, making a put request allows to accept a json array that is beneficial in its own right with a single call to an api endpoint. </li>
+<li><strong>http://localhost:8080/api/scanreportfields/4638/</strong> A record in a mapping_scanreportfields with id=4638 </li>
+<li><strong>http://localhost:8080/api/scanreportfieldsfilter/?scan_report_table=419&amp;name=altered_conscious_state</strong> This will return a record from a mapping_scanreportfield table with "scan_report_table=419" and "name=altered_conscious_state"</li>
+<li><strong>http://localhost:8080/api/scanreportfieldsfilter/?scan_report_table=419</strong> This will return all records from a mapping_scanreportfield table with "scan_report_table=419"</li>
+</ul>
+</li>
+<li>
+<p>mapping_scanreportvalue table</p>
+<ul>
+<li><strong>http://localhost:8080/api/scanreportvalues/</strong> All scan report values in a mapping_scanreportvalues. For this endpoint, making a put request allows to accept a json array that is beneficial in its own right with a single call to an api endpoint. </li>
+<li><strong>http://localhost:8080/api/scanreportvalues/2/</strong> A record in a mapping_scanreportvalues with id=2</li>
+<li><strong>http://localhost:8080/api/scanreportvaluesfilter/?scan_report_field=222&amp;value=Surgery</strong> This will return a record from a mapping_scanreportvalue table with "scan_report_field=222" and "value=surgery"</li>
+<li><strong>http://localhost:8080/api/scanreportvaluesfilter/?scan_report_field=222</strong> This will return all records from a mapping_scanreportvalue table with "scan_report_field=222"</li>
+</ul>
+</li>
+<li>
+<p>mapping_scanreportconcept table  </p>
+<ul>
+<li><strong>http://localhost:8080/api/scanreportconcepts/</strong> All scan report concepts in a mapping_scanreportconcepts. For this endpoint, making a put request allows to accept a json array that is beneficial in its own right with a single call to an api endpoint. </li>
+<li><strong>http://localhost:8080/api/scanreportconcepts/2/</strong> A record in a mapping_scanreportconcepts with id=2</li>
+</ul>
+</li>
+<li>
+<p>mapping table    </p>
+<ul>
+<li><strong>http://localhost:8080/api/mappings/</strong> All records in a mapping table</li>
+<li><strong>http://localhost:8080/api/mappings/1/</strong> A record in a mapping table with id=1</li>
+</ul>
+</li>
+<li>
+<p>mapping_classificationsystem table   </p>
+<ul>
+<li><strong>http://localhost:8080/api/classificationsystems/</strong> All records in a mapping_classificationsystem table</li>
+<li><strong>http://localhost:8080/api/classificationsystems/2/</strong> A record in a mapping_classificationsystem table with id=2</li>
+</ul>
+</li>
+<li>
+<p>mapping_datadictionary table </p>
+<ul>
+<li><strong>http://localhost:8080/api/datadictionaries</strong> All records in a mapping_datadictionary table</li>
+<li><strong>http://localhost:8080/api/datadictionaries/2/</strong> A record in a mapping_datadictionary table with id=2</li>
+</ul>
+</li>
+<li>
+<p>mapping_document table   </p>
+<ul>
+<li><strong>http://localhost:8080/api/documents/</strong> All records in a mapping_document table</li>
+<li><strong>http://localhost:8080/api/documents/2</strong> A record in a mapping_document table with id=2</li>
+</ul>
+</li>
+<li>
+<p>mapping_documentfile table  </p>
+<ul>
+<li><strong>http://localhost:8080/api/documentfiles/</strong> All records in a mapping_documentfiles table</li>
+<li><strong>http://localhost:8080/api/documentfiles/2</strong> A record in a mapping_documentfiles table with id=2</li>
+</ul>
+</li>
+<li>
+<p>datapartner table   </p>
+<ul>
+<li><strong>http://localhost:8080/api/datapartners/</strong> All records in a datapartner table. For this endpoint, making a put request allows to accept a json array that is beneficial in its own right with a single call to an api endpoint. </li>
+<li><strong>http://localhost:8080/api/datapartners/2/</strong> A record in a datapartner table with id=2</li>
+<li><strong>http://localhost:8080/api/datapartnersfilter/?name=University%20of%20Liverpool</strong> This will return a record that has "name=University of Liverpool"</li>
+</ul>
+</li>
+<li>
+<p>mapping_omoptable table </p>
+<ul>
+<li><strong>http://localhost:8080/api/omoptables/</strong> All records in a mapping_omoptable table</li>
+<li><strong>http://localhost:8080/api/omoptables/1673/</strong> A record in a mapping_omoptable table with id=1673</li>
+</ul>
+</li>
+<li>
+<p>mapping_omopfield table </p>
+<ul>
+<li><strong>http://localhost:8080/api/omopfields/</strong> All records in a mapping_omopfield table</li>
+<li><strong>http://localhost:8080/api/omopfields/450/</strong> A record in a mapping_omopfield table with id=2</li>
+</ul>
+</li>
+<li>
+<p>mapping_structuralmappingrule table </p>
+<ul>
+<li><strong>http://localhost:8080/api/structuralmappingrules/</strong> All records in a mapping_structuralmappingrule</li>
+<li><strong>http://localhost:8080/api/structuralmappingrules/8194</strong> A record in a mapping_structuralmappingrule table with id=8194 </li>
+</ul>
+</li>
+<li>
+<p>source table    </p>
+<ul>
+<li><strong>http://localhost:8080/api/sources/</strong> All records in a source table</li>
+<li><strong>http://localhost:8080/api/sources/1/</strong> A record in a source table with id=1   (Currently there is no record in the azure dev DB version)</li>
+</ul>
+</li>
+<li>
+<p>documenttype table  </p>
+<ul>
+<li><strong>http://localhost:8080/api/documenttypes/</strong> All records in a documenttype table</li>
+<li><strong>http://localhost:8080/api/documenttypes/2/</strong> A record in a documenttype table with id=2</li>
+</ul>
+</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../mapping-rules/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Mapping Rules
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../CoConnectTools/source_code/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Getting Started
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+ 
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

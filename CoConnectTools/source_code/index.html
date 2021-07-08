@@ -1,0 +1,1215 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Getting Started - CO-CONNECT Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="co-connect" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#co-connect-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CO-CONNECT Docs" class="md-header__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CO-CONNECT Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CO-CONNECT Docs" class="md-nav__button md-logo" aria-label="CO-CONNECT Docs" data-md-component="logo">
+      
+  <img src="../../images/favicon.png" alt="logo">
+
+    </a>
+    CO-CONNECT Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Azure Functions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Azure Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/RunningLocally/" class="md-nav__link">
+        LocalFunctions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AzureFunctions/processQueue/" class="md-nav__link">
+        ProcessQueue
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Mapping-Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mapping-Pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mapping-Pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/uploading-scan-report/" class="md-nav__link">
+        Uploading a Report
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/nlp-processing/" class="md-nav__link">
+        NLP Processing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/mapping-rules/" class="md-nav__link">
+        Mapping Rules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MappingPipeline/API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CO-CONNECT Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CO-CONNECT Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CO-CONNECT Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Getting Started
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing" class="md-nav__link">
+    Installing
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-source" class="md-nav__link">
+    From Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-via-yum" class="md-nav__link">
+    Installing via yum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etl-quick-start" class="md-nav__link">
+    ETL Quick Start 
+  </a>
+  
+    <nav class="md-nav" aria-label="ETL Quick Start ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute" class="md-nav__link">
+    Execute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-the-output" class="md-nav__link">
+    Inspecting the Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface" class="md-nav__link">
+    Command Line Interface 
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Line Interface ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-in-one" class="md-nav__link">
+    All in One
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        CommonDataModel
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CommonDataModel" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          CommonDataModel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CommonDataModel/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        Tables
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tables" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tables
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Common/" class="md-nav__link">
+        Common
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Person/" class="md-nav__link">
+        Person
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConditionOccurrence/" class="md-nav__link">
+        Condition Occurrence
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Measurement/" class="md-nav__link">
+        Measurement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Observation/" class="md-nav__link">
+        Observation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        ETL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ETL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          ETL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="notebooks/Introduction%20-%20Using%20the%20ETLTool/" class="md-nav__link">
+        Workbook Example
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing" class="md-nav__link">
+    Installing
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-source" class="md-nav__link">
+    From Source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-via-yum" class="md-nav__link">
+    Installing via yum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etl-quick-start" class="md-nav__link">
+    ETL Quick Start 
+  </a>
+  
+    <nav class="md-nav" aria-label="ETL Quick Start ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute" class="md-nav__link">
+    Execute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-the-output" class="md-nav__link">
+    Inspecting the Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-interface" class="md-nav__link">
+    Command Line Interface 
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Line Interface ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-in-one" class="md-nav__link">
+    All in One
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="co-connect-tools">CO-CONNECT Tools<a class="headerlink" href="#co-connect-tools" title="Permanent link">&para;</a></h1>
+<p>Welcome to our repo for <code>python</code> tools used by/with the CO-CONNECT project</p>
+<h3 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="#installing">Installing</a></li>
+<li><a href="#quick">ETL Quick Start</a></li>
+<li><a href="#cli">CLI</a></li>
+</ol>
+<h2 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">&para;</a></h2>
+<p>This package runs with python versions <code>&gt;=3.6</code>, the easiest way to install is via pip:
+<div class="highlight"><pre><span></span><code>$ pip install co-connect-tools
+</code></pre></div>
+To ensure the right version of python (python3) is used to install from pip you can do:
+<div class="highlight"><pre><span></span><code>$ pip3 install co-connect-tools
+</code></pre></div>
+Or to be even safer:
+<div class="highlight"><pre><span></span><code>$ python3 -m pip install co-connect-tools
+</code></pre></div></p>
+<h3 id="from-source">From Source<a class="headerlink" href="#from-source" title="Permanent link">&para;</a></h3>
+<p>To install from the source code, you can do:
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/CO-CONNECT/co-connect-tools.git
+$ cd co-connect-tools
+$ pip install -e .
+</code></pre></div></p>
+<h3 id="installing-via-yum">Installing via yum<a class="headerlink" href="#installing-via-yum" title="Permanent link">&para;</a></h3>
+<p>Package dependencies are located in <code>requirements.txt</code>, which need to be installed if you are building from source without pip:
+<div class="highlight"><pre><span></span><code>$ cat requirements.txt 
+numpy
+pandas
+coloredlogs
+Jinja2
+graphviz
+click
+sqlalchemy
+tabulate
+</code></pre></div></p>
+<h2 id="etl-quick-start">ETL Quick Start <a name="quick"></a><a class="headerlink" href="#etl-quick-start" title="Permanent link">&para;</a></h2>
+<p>The primary purpose of this package is running ETL of given a dataset and a set of transform rules encoded within a <code>json</code> file. The simplest way to run the ETLTool, designed to handle the output <code>json</code> of the CO-CONNECT Mapping-Pipeline web-tool, is to use the script <code>etlcdm.py</code>:</p>
+<p>After installing the package you should be able to execute the command line script
+<div class="highlight"><pre><span></span><code>$ etlcdm.py --help
+usage: etlcdm.py [-h] --rules RULES --out-dir OUT_DIR --inputs INPUTS [INPUTS ...]
+
+ETL-CDM: transform a dataset into a CommonDataModel.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --rules RULES         input .json file
+  --out-dir OUT_DIR, -o OUT_DIR
+                        name of the output folder
+  --inputs INPUTS [INPUTS ...], -i INPUTS [INPUTS ...]
+                        input csv files
+</code></pre></div></p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<p>To run this example, obtain the location of the coconnect data folder, and set this as an environment variable for ease.
+<div class="highlight"><pre><span></span><code>export COCONNECT_DATA_FOLDER=$(coconnect info data_folder)
+</code></pre></div></p>
+<h3 id="execute">Execute<a class="headerlink" href="#execute" title="Permanent link">&para;</a></h3>
+<p>The example dataset and associated mapping rules can be run with the simple script <code>etlcdm.py</code>:
+<div class="highlight"><pre><span></span><code>etlcdm.py -i <span class="nv">$COCONNECT_DATA_FOLDER</span>/test/inputs/*.csv --rules <span class="nv">$COCONNECT_DATA_FOLDER</span>/test/rules/rules_14June2021.json -o test/
+</code></pre></div></p>
+<h3 id="inspecting-the-output">Inspecting the Output<a class="headerlink" href="#inspecting-the-output" title="Permanent link">&para;</a></h3>
+<p><code>.csv</code> files are created for each CDM table, e.g. <code>person.csv</code>. Additionally logs are created and stored in the sub-folder <code>logs/</code>.
+<div class="highlight"><pre><span></span><code>$ tree test/
+test/
+├── condition_occurrence.csv
+├── logs
+│   └── 2021-06-16T100657.json
+├── observation.csv
+└── person.csv
+</code></pre></div></p>
+<p>A convenience command exists to be able to display the output dataframe to the command-line:
+<div class="highlight"><pre><span></span><code>$ coconnect display dataframe test/person.csv 
+   person_id  gender_concept_id  ...  ethnicity_source_value  ethnicity_source_concept_id
+0        101               8507  ...                     NaN                          NaN
+1        102               8507  ...                     NaN                          NaN
+2        103               8532  ...                     NaN                          NaN
+3        104               8532  ...                     NaN                          NaN
+4        105               8532  ...                     NaN                          NaN
+5        106               8507  ...                     NaN                          NaN
+6        107               8532  ...                     NaN                          NaN
+7        108               8507  ...                     NaN                          NaN
+8        109               8532  ...                     NaN                          NaN
+9        110               8532  ...                     NaN                          NaN
+
+[10 rows x 18 columns]
+</code></pre></div>
+This can also be used with the option <code>--drop-na</code> to just display those columns which have none-NaN values
+<div class="highlight"><pre><span></span><code>$ coconnect display dataframe --drop-na test/person.csv 
+   person_id  gender_concept_id       birth_datetime gender_source_value  gender_source_concept_id
+0        101               8507  1951-12-25 00:00:00                   M                      8507
+1        102               8507  1981-11-19 00:00:00                   M                      8507
+2        103               8532  1997-05-11 00:00:00                   F                      8532
+3        104               8532  1975-06-07 00:00:00                   F                      8532
+4        105               8532  1976-04-23 00:00:00                   F                      8532
+5        106               8507  1966-09-29 00:00:00                   M                      8507
+6        107               8532  1956-11-12 00:00:00                   F                      8532
+7        108               8507  1985-03-01 00:00:00                   M                      8507
+8        109               8532  1950-10-31 00:00:00                   F                      8532
+9        110               8532  1993-09-07 00:00:00                   F                      8532
+</code></pre></div></p>
+<p>Markdown format can be obtained for convenience:
+<div class="highlight"><pre><span></span><code>$ coconnect display dataframe --markdown --drop-na test/person.csv
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">person_id</th>
+<th align="right">gender_concept_id</th>
+<th align="left">birth_datetime</th>
+<th align="left">gender_source_value</th>
+<th align="right">gender_source_concept_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">101</td>
+<td align="right">8507</td>
+<td align="left">1951-12-25 00:00:00</td>
+<td align="left">M</td>
+<td align="right">8507</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">102</td>
+<td align="right">8507</td>
+<td align="left">1981-11-19 00:00:00</td>
+<td align="left">M</td>
+<td align="right">8507</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">103</td>
+<td align="right">8532</td>
+<td align="left">1997-05-11 00:00:00</td>
+<td align="left">F</td>
+<td align="right">8532</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">104</td>
+<td align="right">8532</td>
+<td align="left">1975-06-07 00:00:00</td>
+<td align="left">F</td>
+<td align="right">8532</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">105</td>
+<td align="right">8532</td>
+<td align="left">1976-04-23 00:00:00</td>
+<td align="left">F</td>
+<td align="right">8532</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">106</td>
+<td align="right">8507</td>
+<td align="left">1966-09-29 00:00:00</td>
+<td align="left">M</td>
+<td align="right">8507</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">107</td>
+<td align="right">8532</td>
+<td align="left">1956-11-12 00:00:00</td>
+<td align="left">F</td>
+<td align="right">8532</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">108</td>
+<td align="right">8507</td>
+<td align="left">1985-03-01 00:00:00</td>
+<td align="left">M</td>
+<td align="right">8507</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">109</td>
+<td align="right">8532</td>
+<td align="left">1950-10-31 00:00:00</td>
+<td align="left">F</td>
+<td align="right">8532</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="right">110</td>
+<td align="right">8532</td>
+<td align="left">1993-09-07 00:00:00</td>
+<td align="left">F</td>
+<td align="right">8532</td>
+</tr>
+</tbody>
+</table>
+<h2 id="command-line-interface">Command Line Interface <a name="cli"></a><a class="headerlink" href="#command-line-interface" title="Permanent link">&para;</a></h2>
+<p>To list the available commands available with the <code>cli</code>, you can simply use <code>--help</code>:
+<div class="highlight"><pre><span></span><code>$ coconnect --help
+Usage: coconnect <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+
+Options:
+  -l, --loglevel TEXT
+  --help               Show this message and exit.
+
+Commands:
+  map
+</code></pre></div></p>
+<h3 id="map">Map<a class="headerlink" href="#map" title="Permanent link">&para;</a></h3>
+<p>Commands used for mapping datasets with OMOP are found with the command <code>map</code>
+<div class="highlight"><pre><span></span><code>$ coconnect map --help
+Usage: coconnect map <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  display  Display the OMOP mapping json as a DAG
+  list     List all the python classes there are available to run
+  make     Generate a python class from the OMOP mapping json
+  run      Perform OMOP Mapping
+  show     Show the OMOP mapping json
+</code></pre></div></p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<p>This quick example shows how you can run OMOP mapping based on a sample json file</p>
+<p>Firstly run <code>show</code> to display the input <code>json</code> structure
+<div class="highlight"><pre><span></span><code>$ coconnect map show example/sample_config/lion_structural_mapping.json
+...
+      &quot;cdm&quot;: {
+            &quot;person&quot;: [
+                  {
+                        &quot;birth_datetime&quot;: {
+                              &quot;source_table&quot;: &quot;demo.csv&quot;,
+                              &quot;source_field&quot;: &quot;dob&quot;,
+                              &quot;term_mapping&quot;: null,
+                              &quot;operations&quot;: [
+                                    &quot;get_datetime&quot;
+                              ]
+                        },
+            ...
+</code></pre></div></p>
+<p>To display this <code>json</code> as a <code>dag</code> you can run:
+<div class="highlight"><pre><span></span><code>$ coconnect map display example/sample_config/lion_structural_mapping.json 
+</code></pre></div></p>
+<p>The next step is to create a <code>.py</code> configuration file from this input <code>json</code>. The tool automatically registers these files, to see registered files, you can run:
+<div class="highlight"><pre><span></span><code>$ coconnect map list
+{}
+</code></pre></div>
+Showing that no files have been created and registered.</p>
+<p>To create your first configuration file, run <code>make</code> specifying the name of the output file/class:
+<div class="highlight"><pre><span></span><code>$ coconnect map make --name Lion  example/sample_config/lion_structural_mapping.json
+Making new file &lt;your install dir&gt;/co-connect-tools/coconnect/cdm/classes/Lion.py
+</code></pre></div></p>
+<p>Looking at the file that has been created, you can see the <code>.py</code> configuration file has been made:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">coconnect.cdm</span> <span class="kn">import</span> <span class="n">define_person</span><span class="p">,</span> <span class="n">define_condition_occurrence</span><span class="p">,</span> <span class="n">define_visit_occurrence</span><span class="p">,</span> <span class="n">define_measurement</span><span class="p">,</span> <span class="n">define_observation</span>
+<span class="kn">from</span> <span class="nn">coconnect.cdm</span> <span class="kn">import</span> <span class="n">CommonDataModel</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">class</span> <span class="nc">Lion</span><span class="p">(</span><span class="n">CommonDataModel</span><span class="p">):</span>
+
+<span class="o">...</span>
+    <span class="nd">@define_person</span>
+    <span class="k">def</span> <span class="nf">person_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create CDM object for person</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birth_datetime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;demo.csv&quot;</span><span class="p">][</span><span class="s2">&quot;dob&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">day_of_birth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;demo.csv&quot;</span><span class="p">][</span><span class="s2">&quot;dob&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender_concept_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;demo.csv&quot;</span><span class="p">][</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender_source_concept_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;demo.csv&quot;</span><span class="p">][</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender_source_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;demo.csv&quot;</span><span class="p">][</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">month_of_birth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;demo.csv&quot;</span><span class="p">][</span><span class="s2">&quot;dob&quot;</span><span class="p">]</span>
+<span class="o">....</span>
+</code></pre></div>
+<p>Now the <code>list</code> command shows that the file has been registered with the tool:
+<div class="highlight"><pre><span></span><code>$ coconnect map list
+{
+      &quot;Lion&quot;: {
+            &quot;module&quot;: &quot;coconnect.cdm.classes.Lion&quot;,
+            &quot;path&quot;: &quot;/Users/calummacdonald/Usher/CO-CONNECT/Software/co-connect-tools/coconnect/cdm/classes/Lion.py&quot;,
+            &quot;last-modified&quot;: &quot;2021-04-16 10:26:33&quot;
+      }
+}
+</code></pre></div></p>
+<p>Now we're able to run:
+<div class="highlight"><pre><span></span><code>$ coconnect map run --name Lion example/sample_input_data/*.csv
+...
+
+2021-04-16 10:29:12 - Lion - INFO - finalised observation
+2021-04-16 10:29:12 - Lion - INFO - saving person to output_data//person.csv
+2021-04-16 10:29:12 - Lion - INFO -            gender_concept_id  year_of_birth  ...  race_source_concept_id  ethnicity_source_value
+person_id                                    ...                                                
+1                       8532           1962  ...                  123456                        
+2                       8507           1972  ...                  123456                        
+3                       8532           1979  ...                  123422                        
+4                       8532           1991  ...                  123456                        
+
+[4 rows x 12 columns]
+...
+</code></pre></div></p>
+<p>Outputs are saved in the folder <code>output_data</code></p>
+<h3 id="all-in-one">All in One<a class="headerlink" href="#all-in-one" title="Permanent link">&para;</a></h3>
+<p>In one command, all the above steps can be executed as such:</p>
+<p>Example:
+<div class="highlight"><pre><span></span><code>coconnect map run --name Lion --rules example/sample_config/lion_structural_mapping.json  example/sample_input_data/*.csv
+</code></pre></div></p>
+<p>To run in one command, supply the name of the dataset (e.g. Panther), the rules <code>json</code> file that has been obtained from mapping-pipeline and then all the input files to run on.
+<div class="highlight"><pre><span></span><code>coconnect map run --name &lt;NAME&gt; --rules &lt;RULES.json&gt; &lt;INPUTFILE <span class="m">1</span>&gt; &lt;INPUTFILE <span class="m">2</span>&gt; ....
+</code></pre></div></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../MappingPipeline/API/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              API
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../CommonDataModel/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+ 
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>
